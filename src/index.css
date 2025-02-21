@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .gradient-text-animated {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      to right,
+      theme(colors.purple.600),
+      theme(colors.blue.600),
+      theme(colors.purple.600)
+    );
+    background-size: 200% auto;
+    animation: gradient 8s ease-in-out infinite;
+  }
+
+  .dark .gradient-text-animated {
+    background-image: linear-gradient(
+      to right,
+      theme(colors.purple.400),
+      theme(colors.blue.400),
+      theme(colors.purple.400)
+    );
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.terminal-gradient {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
