@@ -33,12 +33,12 @@ function App() {
     localStorage.setItem("theme", newTheme);
   };
 
+
   return (
     <div className={`min-h-screen ${isDark ? 'dark' : ''}`}>
       <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
         <ThemeToggle isDark={isDark} toggle={toggleTheme} />
         
-        {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <HeroBackground />
           <div className="container mx-auto px-4 py-16 relative z-10">
@@ -64,31 +64,31 @@ function App() {
               >
                 {personalInfo.title}
               </motion.p>
+
+              {/* Flexbox for Terminal & Image */}
               <motion.div
+                className="flex flex-col md:flex-row items-center justify-center gap-8"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Terminal />
+                {/* Terminal Component */}
+                <div className="w-full md:w-1/2">
+                  <Terminal />
+                </div>
+
+                {/* Image Section */}
+                <div className="w-full md:w-1/2 flex justify-center">
+                  <img 
+                    src="../src/image.png"  
+                    alt="Profile"
+                    className="rounded-lg shadow-lg max-w-xs md:max-w-sm"
+                  />
+                </div>
               </motion.div>
             </motion.div>
           </div>
-          <motion.div
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              className="w-6 h-10 border-2 border-gray-400 rounded-full p-1"
-            >
-              <div className="w-1 h-2 bg-gray-400 rounded-full mx-auto" />
-            </motion.div>
-          </motion.div>
         </section>
-
         {/* Projects Section */}
         <section ref={ref} className="py-20 bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-800">
           <div className="container mx-auto px-4">
