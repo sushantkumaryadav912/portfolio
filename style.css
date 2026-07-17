@@ -869,3 +869,12 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* ElevenLabs Conversational AI Widget Style */
+elevenlabs-convai {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+}
+
